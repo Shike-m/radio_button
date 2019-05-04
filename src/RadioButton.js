@@ -38,14 +38,18 @@ const Button = styled.input`
 `;
 
 const RadioButton = (props) => {
-    
+    const takeChecked = (e) => {
+        let value = e.target.value;
+        props.onChange(value);
+    }
     return (
         <Wrapper>
             <Button
                 type="radio"
                 name="radio"
-                value="color"
-                onChange={(e)=>{console.log("RadioButton",e.target.checked)}}
+                value={props.color}
+                id={props.color}
+                onChange={(e) => takeChecked(e) }
             />
             <CheckedMark/>
             {props.children}
